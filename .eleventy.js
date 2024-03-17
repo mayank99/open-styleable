@@ -14,6 +14,7 @@ export default function (eleventyConfig) {
 		htmlTemplateEngine: "webc",
 		dir: {
 			input: "pages",
+			includes: "../_includes",
 			output: "dist",
 		},
 	};

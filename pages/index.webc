@@ -1,19 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>11ty</title>
-	</head>
+---
+layout: "base.webc"
+---
 
-	<body>
-		<h1>Hello</h1>
-		<div>
-			<shadow-root>
-				<p>This is inside shadow DOM!</p>
-				<shadow-slot></shadow-slot>
-			</shadow-root>
-			<p>And this is outside.</p>
-		</div>
-	</body>
-</html>
+<h1>Hello</h1>
+<div>
+	<shadow-root>
+		<p>This is inside shadow DOM!</p>
+		<shadow-slot></shadow-slot>
+	</shadow-root>
+	<p>And this is outside.</p>
+</div>

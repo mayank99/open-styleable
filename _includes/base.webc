@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title @text="title || '11ty'"></title>
+		<link webc:keep rel="stylesheet" :href="getBundleFileUrl('css')" />
+		<script webc:keep type="module" :src="getBundleFileUrl('js')"></script>
+	</head>
+
+	<body @raw="content"></body>
+</html>
