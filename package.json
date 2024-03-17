@@ -1,0 +1,14 @@
+{
+	"name": "open-styleable",
+	"type": "module",
+	"private": true,
+	"version": "0.0.1",
+	"devDependencies": {
+		"@11ty/eleventy": "canary",
+		"@11ty/webc": "latest"
+	},
+	"scripts": {
+		"build": "npx @11ty/eleventy",
+		"dev": "npx @11ty/eleventy --serve --port 1174"
+	}
+}

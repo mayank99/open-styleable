@@ -1,0 +1,2 @@
+*.webc text diff=html
+*.webc linguist-language=html
