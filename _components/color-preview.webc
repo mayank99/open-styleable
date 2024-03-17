@@ -1,0 +1,29 @@
+<color-preview webc:root="override" :style="`--color: ${color}`">
+	<template shadowrootmode="open">
+		<style>
+			:host {
+				box-sizing: border-box;
+				margin-inline: 0.5ch;
+				outline: 2px solid;
+				padding: 2px;
+				padding-inline-start: 4px;
+				border-radius: 4px;
+				background-color: color-mix(in srgb, var(--color) 12%, transparent);
+			}
+			span {
+				display: inline-block;
+				width: 1em;
+				height: 1em;
+				background-color: var(--color);
+				border-radius: 9e9px;
+				vertical-align: middle;
+				transform: translateY(-0.1em);
+			}
+		</style>
+		<span></span>
+		<shadow-slot></shadow-slot>
+	</template>
+	<script webc:type="js">
+		`${color}`;
+	</script>
+</color-preview>
