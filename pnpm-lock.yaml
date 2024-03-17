@@ -8,9 +8,9 @@ devDependencies:
   '@11ty/eleventy':
     specifier: canary
     version: 3.0.0-alpha.5
-  '@11ty/webc':
+  '@11ty/eleventy-plugin-webc':
     specifier: latest
-    version: 0.11.4
+    version: 0.11.2
 
 packages:
 
@@ -49,6 +49,25 @@ packages:
       - bufferutil
       - supports-color
       - utf-8-validate
+    dev: true
+
+  /@11ty/eleventy-plugin-bundle@1.0.5:
+    resolution: {integrity: sha512-Esv97j+mOo/yfxjaWl4j8CyszOBsRjU/DOUWOBqVnnDLM8VDXeus2LTJUxF70nAU0g+z+b6fRn8fKnm6b2a/UQ==}
+    engines: {node: '>=14'}
+    dependencies:
+      debug: 4.3.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@11ty/eleventy-plugin-webc@0.11.2:
+    resolution: {integrity: sha512-oa/XlAqI5KtVO7M14qaN92D2yJfBEMMSb66YWY6YZVbRqFSVbjO4WmRJ2Ti2ZZb1FNvxj4ypGNV8VJleGE69xw==}
+    engines: {node: '>=14.18'}
+    dependencies:
+      '@11ty/eleventy-plugin-bundle': 1.0.5
+      '@11ty/webc': 0.11.4
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /@11ty/eleventy-utils@1.0.2:

@@ -5,7 +5,7 @@
 	"version": "0.0.1",
 	"devDependencies": {
 		"@11ty/eleventy": "canary",
-		"@11ty/webc": "latest"
+		"@11ty/eleventy-plugin-webc": "latest"
 	},
 	"scripts": {
 		"build": "npx @11ty/eleventy",
