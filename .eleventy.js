@@ -6,6 +6,10 @@ export default function (eleventyConfig) {
 		components: ["_components/**/*.webc"],
 	});
 
+	eleventyConfig.setServerOptions({
+		domDiff: false,
+	});
+
 	return {
 		htmlTemplateEngine: "webc",
 		dir: {

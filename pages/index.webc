@@ -8,5 +8,12 @@
 
 	<body>
 		<h1>Hello</h1>
+		<div>
+			<shadow-root>
+				<p>This is inside shadow DOM!</p>
+				<shadow-slot></shadow-slot>
+			</shadow-root>
+			<p>And this is outside.</p>
+		</div>
 	</body>
 </html>
