@@ -9,6 +9,7 @@ export default function (eleventyConfig) {
 
 	eleventyConfig.setServerOptions({
 		domDiff: false,
+		watch: ["**/*.webc"],
 	});
 
 	return {
