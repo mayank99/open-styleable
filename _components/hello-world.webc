@@ -1,0 +1,20 @@
+<shadow-root adoptstyles="inherit">
+	<p class="shadow">
+		This is inside shadow DOM
+		<color-preview @color="rebeccapurple"></color-preview>.
+	</p>
+	<shadow-slot></shadow-slot>
+</shadow-root>
+
+<p class="light">
+	And this is outside <color-preview @color="hotpink"></color-preview>.
+</p>
+
+<style>
+	p.shadow {
+		color: rebeccapurple;
+	}
+	p.light {
+		color: hotpink;
+	}
+</style>

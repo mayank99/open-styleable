@@ -1,12 +1,6 @@
----
-import ShadowSlot from "./shadow-slot.astro";
-
-const { color, ...props } = Astro.props;
----
-
-<color-preview style={{ "--color": color }} {...props}>
+<color-preview webc:root="override" :style="`--color: ${color}`">
 	<template shadowrootmode="open">
-		<style is:inline>
+		<style>
 			:host {
 				box-sizing: border-box;
 				margin-inline: 0.5ch;
@@ -27,7 +21,9 @@ const { color, ...props } = Astro.props;
 			}
 		</style>
 		<span></span>
-		<ShadowSlot />
+		<shadow-slot></shadow-slot>
 	</template>
-	{color}
+	<script webc:type="js">
+		`${color}`;
+	</script>
 </color-preview>

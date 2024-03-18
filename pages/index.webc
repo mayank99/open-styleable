@@ -1,0 +1,6 @@
+---
+layout: "base.webc"
+---
+
+<h1>Hello</h1>
+<hello-world></hello-world>
