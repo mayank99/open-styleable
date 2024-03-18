@@ -1,0 +1,26 @@
+---
+import ColorPreview from "./color-preview.astro";
+import ShadowSlot from "./shadow-slot.astro";
+---
+
+<hello-world>
+	<template shadowrootmode="open" adoptstyles="inherit">
+		<p class="shadow">
+			This is inside shadow DOM. <ColorPreview color="rebeccapurple" />
+		</p>
+		<ShadowSlot />
+	</template>
+
+	<p class="light">
+		And this is outside. <ColorPreview color="hotpink" />
+	</p>
+</hello-world>
+
+<style>
+	p.shadow {
+		color: rebeccapurple;
+	}
+	p.light {
+		color: hotpink;
+	}
+</style>

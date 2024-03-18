@@ -4,11 +4,11 @@
 	"private": true,
 	"version": "0.0.1",
 	"devDependencies": {
-		"@11ty/eleventy": "canary",
-		"@11ty/eleventy-plugin-webc": "latest"
+		"astro": "~4.5.5"
 	},
 	"scripts": {
-		"build": "npx @11ty/eleventy",
-		"dev": "npx @11ty/eleventy --serve --port 1174"
+		"build": "astro build",
+		"dev": "astro dev",
+		"preview": "astro preview"
 	}
 }
