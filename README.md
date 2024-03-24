@@ -5,7 +5,14 @@ A proof-of-concept implementation of open-styleable shadow-roots, using a combin
 - A build-time HTML transform for declarative shadow DOM
 - A client-side script that overrides `attachShadow`
 
+Try it live:
+
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github.com/mayank99/open-styleable?file=pages/index.html)
+
 ## Usage
+
+> [!IMPORTANT]
+> See [standalone setup instructions](#standalone-setup) below if you're trying to use this in your own project.
 
 To create an openly styleable shadow-root, add `adoptstyles="inherit"` to the declarative shadow DOM template.
 
@@ -30,13 +37,43 @@ this.attachShadow({
 });
 ```
 
+## Standalone setup
+
+To use this "polyfill" in your own project:
+
+1. Install `open-styleable` from npm (or use [import maps](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap)).
+   ```
+   npm add open-styleable
+   ```
+2. Hook up the HTML transform into your templating system (see [`.eleventy.js`](https://github.com/mayank99/open-styleable/blob/1587fe679b8e6682cdc15ac5e6a5dddaba963410/.eleventy.js#L12-L16) for an example). This should ideally be executed _after_ all bundling steps.
+   ```js
+   import { transformHtml } from "open-styleable";
+   ```
+   ```js
+   // assuming `htmlContent` is the original page content
+   htmlContent = transformHtml(htmlContent);
+   ```
+3. Include the `/client` script in your `<head>` before any custom elements are registered.
+   ```html
+   <script>
+   	import "open-styleable/client";
+   </script>
+   ```
+   or from a CDN:
+   ```html
+   <script src="https://esm.sh/open-styleable/client"></script>
+   ```
+
+> [!NOTE]
+> You do _not_ always need to use both the build-time transform and the client-side script. They are completely independent and do different things.
+
+---
+
 ## Development
 
 This demo is built with 11ty. All html routes go in the `pages/` directory, and all CSS (and other assets) live in the `public` directory.
 
-You can play with it in your browser using StackBlitz or GitHub Codespaces:
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github.com/mayank99/open-styleable?file=pages/index.html) [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/mayank99/open-styleable)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/mayank99/open-styleable)
 
 <details>
 <summary>Local setup</summary>
