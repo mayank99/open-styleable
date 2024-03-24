@@ -5,18 +5,19 @@
 		/** @type {ShadowRootInit} */ init
 	) {
 		const shadow = originalAttachShadow.call(this, init);
-		if (!init["adoptStyles"]) return shadow;
 
-		let source;
+		let sourceNode;
 		if (init["adoptStyles"] === "initial") {
-			source = this.ownerDocument;
+			sourceNode = this.ownerDocument;
 		} else if (init["adoptStyles"] === "inherit") {
-			source = shadow.host.getRootNode();
+			sourceNode = shadow.host.getRootNode();
 		}
 
+		if (!sourceNode) return shadow;
+
 		shadow.adoptedStyleSheets.push(
-			...construct(source.styleSheets),
-			...source.adoptedStyleSheets
+			...construct(sourceNode.styleSheets),
+			...sourceNode.adoptedStyleSheets
 		);
 
 		return shadow;
@@ -25,7 +26,7 @@
 	function construct(styleSheets) {
 		return Array.from(styleSheets).map((styleSheet) => {
 			const sheet = new CSSStyleSheet();
-			sheet.replace(stringifyStyleSheet(styleSheet));
+			sheet.replaceSync(stringifyStyleSheet(styleSheet));
 			return sheet;
 		});
 	}
