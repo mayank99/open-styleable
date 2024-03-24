@@ -16,22 +16,30 @@ Alternatively, if you only want to adopt styles from the document and not from t
 <template shadowrootmode="open" adoptstyles="initial">…</template>
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github.com/mayank99/open-styleable?file=pages/index.html)
-
-## Local setup
+## Run
 
 This demo is built with 11ty. All html routes go in the `pages/` directory, and all CSS (and other assets) live in the `public` directory.
 
-To run it locally, clone the repo and install dependencies:
+### In browser/cloud IDE
 
-```
-npm install
-```
+You can play with it in your browser using StackBlitz or GitHub Codespaces:
 
-Then start the dev server:
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github.com/mayank99/open-styleable?file=pages/index.html) [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/mayank99/open-styleable)
 
-```
-npm run dev
-```
+### Local setup
 
-Now open up `localhost:1174`
+To run it locally, clone the repo and follow these steps:
+
+1. Install dependencies.
+
+   ```
+   npm install
+   ```
+
+2. Start the dev server.
+
+   ```
+   npm run dev
+   ```
+
+3. Open up `localhost:1174` in your browser.
