@@ -14,28 +14,36 @@ Try it live:
 > [!IMPORTANT]
 > See [standalone setup instructions](#standalone-setup) below if you're trying to use this in your own project.
 
-To create an openly styleable shadow-root, add `adoptstyles="inherit"` to the declarative shadow DOM template.
+For [declarative shadow DOM](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM#declaratively_with_html) (DSD):
 
-```html
-<template shadowrootmode="open" adoptstyles="inherit">…</template>
-```
+- Add `adoptstyles="inherit"` to the DSD template. This shadow-root will now automatically inherit all styles from the host context (i.e. the document or a parent shadow-root).
 
-This shadow-root will now automatically inherit all styles from the host context (i.e. the document or a parent shadow-root).
+  ```html
+  <template shadowrootmode="open" adoptstyles="inherit">…</template>
+  ```
 
-Alternatively, if you only want to adopt styles from the document and not from the parent shadow-root, then you can use `adoptstyles="initial"`.
+- Alternatively, if you only want to adopt styles from the document and not from the parent shadow-root, then you can use `adoptstyles="initial"`.
 
-```html
-<template shadowrootmode="open" adoptstyles="initial">…</template>
-```
+  ```html
+  <template shadowrootmode="open" adoptstyles="initial">…</template>
+  ```
 
 For client-rendered shadow-roots, use the `adoptStyles` option when calling `attachShadow`.
 
-```js
-this.attachShadow({
-	mode: "open",
-	adoptStyles: "inherit", // or "initial"
-});
-```
+- Use `adoptStyles: "inherit"` to adopt all styles from the host context.
+  ```js
+  this.attachShadow({
+  	mode: "open",
+  	adoptStyles: "inherit",
+  });
+  ```
+- Use `adoptStyles: "initial"` to adopt all styles from the document only.
+  ```js
+  this.attachShadow({
+  	mode: "open",
+  	adoptStyles: "initial",
+  });
+  ```
 
 ## Standalone setup
 
