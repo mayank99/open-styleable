@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="color-scheme" content="dark" />
+		<title>open-styleable demo</title>
+
+		<link rel="stylesheet" href="./reset.css" />
+
+		<style>
+			p.shadow {
+				color: thistle;
+			}
+			p.light {
+				color: hotpink;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Hello</h1>
+
+		<div>
+			<template shadowrootmode="open" adoptstyles="inherit">
+				<p class="shadow">This is inside shadow DOM. (Inspect it!)</p>
+				<slot></slot>
+			</template>
+
+			<p class="light">And this is outside.</p>
+		</div>
+	</body>
+</html>

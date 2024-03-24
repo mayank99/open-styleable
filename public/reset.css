@@ -1,0 +1,18 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+:where(body) {
+	margin: 0;
+	font-family: system-ui, sans-serif;
+}
+
+:where(button, input, select, textarea) {
+	font: inherit;
+}
+
+:where([hidden]:not([hidden="until-found"])) {
+	display: none !important;
+}
