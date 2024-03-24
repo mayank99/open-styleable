@@ -28,12 +28,12 @@
 			const _global =
 				styleSheet.ownerNode?.ownerDocument.defaultView || globalThis;
 			const sheet = new _global.CSSStyleSheet();
-			sheet.replaceSync(stringifyStyleSheet(styleSheet));
+			sheet.replaceSync(stringify(styleSheet));
 			return sheet;
 		});
 	}
 
-	function stringifyStyleSheet(/** @type CSSStyleSheet */ styleSheet) {
+	function stringify(/** @type CSSStyleSheet */ styleSheet) {
 		return Array.from(styleSheet.cssRules)
 			.map((rule) => rule.cssText || "")
 			.join("\n");
