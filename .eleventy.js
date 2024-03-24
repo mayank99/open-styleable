@@ -4,10 +4,8 @@ import { transformHtml } from "./open-styleable.js";
 export default function (eleventyConfig) {
 	eleventyConfig.ignores?.add("README.md");
 
-	eleventyConfig.addPassthroughCopy({
-		public: ".",
-		"open-styleable-client.js": ".",
-	});
+	eleventyConfig.addPassthroughCopy({ public: "." });
+	eleventyConfig.addPassthroughCopy("open-styleable-client.js");
 
 	eleventyConfig.setServerOptions({ domDiff: false });
 
