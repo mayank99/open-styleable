@@ -23,12 +23,22 @@
 		return shadow;
 	};
 
+	const cache = new WeakMap();
+
 	function construct(/** @type StyleSheetList */ styleSheets) {
+		const _this = this || globalThis;
+		if (!cache.has(_this)) {
+			cache.set(_this, new WeakMap());
+		}
+
 		return Array.from(styleSheets).map((styleSheet) => {
-			const _global =
-				styleSheet.ownerNode?.ownerDocument.defaultView || globalThis;
-			const sheet = new _global.CSSStyleSheet();
+			if (cache.get(_this).has(styleSheet)) {
+				return cache.get(_this).get(styleSheet);
+			}
+
+			const sheet = new _this.CSSStyleSheet();
 			sheet.replaceSync(stringify(styleSheet));
+			cache.get(_this).set(styleSheet, sheet);
 			return sheet;
 		});
 	}
