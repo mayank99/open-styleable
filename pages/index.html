@@ -27,6 +27,23 @@
 			</template>
 
 			<p class="light">And this is outside.</p>
+
+			<my-component></my-component>
 		</div>
+
+		<script type="module">
+			customElements.define(
+				"my-component",
+				class extends HTMLElement {
+					constructor() {
+						super();
+						this.attachShadow({ mode: "open", adoptStyles: "inherit" });
+						this.shadowRoot.innerHTML = `\
+							<p class="shadow">This is inside a client-rendered shadow-root.</p>
+						`;
+					}
+				}
+			);
+		</script>
 	</body>
 </html>
