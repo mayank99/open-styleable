@@ -1,0 +1,15 @@
+{
+	"image": "mcr.microsoft.com/devcontainers/universal:2",
+	"customizations": {
+		"codespaces": {
+			"openFiles": ["pages/index.html"]
+		}
+	},
+	"onCreateCommand": "npm install",
+	"postAttachCommand": "npm run dev",
+	"portsAttributes": {
+		"1174": {
+			"onAutoForward": "openPreview"
+		}
+	}
+}
