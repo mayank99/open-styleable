@@ -17,7 +17,6 @@ export function transformHtml(html) {
 		);
 
 		for (const template of templates) {
-			template.setAttribute("data-done", "true");
 			template.append(...allStyles.map((el) => el.cloneNode(true)));
 		}
 
