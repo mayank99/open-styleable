@@ -1,6 +1,11 @@
 # open-styleable
 
-A proof-of-concept implementation of open-styleable shadow-roots, using a simple build-time HTML transform.
+A proof-of-concept implementation of open-styleable shadow-roots, using a combination of:
+
+- A build-time HTML transform for declarative shadow DOM
+- A client-side script that overrides `attachShadow`
+
+## Usage
 
 To create an openly styleable shadow-root, add `adoptstyles="inherit"` to the declarative shadow DOM template.
 
@@ -14,6 +19,15 @@ Alternatively, if you only want to adopt styles from the document and not from t
 
 ```html
 <template shadowrootmode="open" adoptstyles="initial">…</template>
+```
+
+For client-rendered shadow-roots, use the `adoptStyles` option when calling `attachShadow`.
+
+```js
+this.attachShadow({
+	mode: "open",
+	adoptStyles: "inherit", // or "initial"
+});
 ```
 
 ## Run
