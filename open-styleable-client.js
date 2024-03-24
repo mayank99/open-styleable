@@ -23,16 +23,18 @@
 		return shadow;
 	};
 
-	function construct(styleSheets) {
+	function construct(/** @type StyleSheetList */ styleSheets) {
 		return Array.from(styleSheets).map((styleSheet) => {
-			const sheet = new CSSStyleSheet();
+			const _global =
+				styleSheet.ownerNode?.ownerDocument.defaultView || globalThis;
+			const sheet = new _global.CSSStyleSheet();
 			sheet.replaceSync(stringifyStyleSheet(styleSheet));
 			return sheet;
 		});
 	}
 
-	function stringifyStyleSheet(stylesheet) {
-		return Array.from(stylesheet.cssRules)
+	function stringifyStyleSheet(/** @type CSSStyleSheet */ styleSheet) {
+		return Array.from(styleSheet.cssRules)
 			.map((rule) => rule.cssText || "")
 			.join("\n");
 	}
