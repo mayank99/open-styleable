@@ -9,6 +9,6 @@
 	},
 	"scripts": {
 		"build": "npx @11ty/eleventy",
-		"dev": "npm run build && npx @11ty/eleventy --serve --port 1174"
+		"dev": "npx @11ty/eleventy --serve --port 1174"
 	}
 }
