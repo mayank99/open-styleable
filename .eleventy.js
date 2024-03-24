@@ -1,4 +1,4 @@
-import { transformHtml } from "./open-styleable.js";
+import { transformHtml } from "./open-styleable-transform.js";
 
 /** @param {import("@11ty/eleventy/src/UserConfig.js").default} eleventyConfig */
 export default function (eleventyConfig) {
