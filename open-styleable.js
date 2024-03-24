@@ -10,13 +10,15 @@ export function transformHtml(html) {
 		if (!root) break;
 
 		const templates = Array.from(
-			root.querySelectorAll("template[adoptstyles=inherit]")
+			root.querySelectorAll("template[shadowrootmode]")
 		);
 		const allStyles = Array.from(
-			document.querySelectorAll("link[rel=stylesheet], style")
+			root.querySelectorAll("link[rel=stylesheet], style")
 		);
 
-		for (const template of templates) {
+		for (const template of templates.filter(
+			(template) => template.getAttribute("adoptstyles") === "inherit"
+		)) {
 			template.append(...allStyles.map((el) => el.cloneNode(true)));
 		}
 
