@@ -1,4 +1,3 @@
-import pluginWebc from "@11ty/eleventy-plugin-webc";
 import { transformHtml } from "./open-styleable.js";
 
 /** @param {import("@11ty/eleventy/src/UserConfig.js").default} eleventyConfig */
@@ -7,10 +6,7 @@ export default function (eleventyConfig) {
 
 	eleventyConfig.addPassthroughCopy({ public: "." });
 
-	eleventyConfig.setServerOptions({
-		domDiff: false,
-		watch: ["**/*.webc"],
-	});
+	eleventyConfig.setServerOptions({ domDiff: false });
 
 	eleventyConfig.addTransform("open-styleable", function (content) {
 		if (this.page.outputPath?.endsWith(".html")) {
