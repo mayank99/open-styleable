@@ -11,8 +11,9 @@ Try it live:
 
 ## Usage
 
-> [!IMPORTANT]
-> See [standalone setup instructions](#standalone-setup) below if you're trying to use this in your own project.
+*(See [standalone setup instructions](#standalone-setup) below if you're trying to use this in your own project)* 👀
+
+The access for open styles is controlled at the shadow-root level. Every shadow-root needs to explicitly opt-in using one of the following ways.
 
 For [declarative shadow DOM](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM#declaratively_with_html) (DSD):
 
