@@ -8,7 +8,8 @@
 	margin: 0;
 	padding: 16px;
 	font-family: system-ui, sans-serif;
-	min-block-size: 100dvh;
+	max-inline-size: min(95dvi, 75ch);
+	margin-inline: auto;
 }
 
 :where(button, input, select, textarea) {
