@@ -1,0 +1,32 @@
+@scope (:root, :host) {
+	:scope {
+		/* styles for :root or :host */
+	}
+
+	.box {
+		display: inline-grid;
+		place-items: center;
+		aspect-ratio: 1;
+		border: 2px solid CanvasText;
+		min-inline-size: 150px;
+		font-size: 1.25rem;
+	}
+}
+
+@scope (:root) {
+	.pink {
+		color: hotpink;
+	}
+}
+
+@scope (:host) {
+	.blue {
+		color: cornflowerblue;
+	}
+}
+
+@scope (:host(my-component)) {
+	.green {
+		color: limegreen;
+	}
+}

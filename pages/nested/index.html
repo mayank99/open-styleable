@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="color-scheme" content="dark" />
+		<title>open-styleable demo</title>
+		<script src="/open-styleable-client.js"></script>
+
+		<link rel="stylesheet" href="/base.css" />
+
+		<style>
+			:root {
+				--brand: hotpink;
+				--muted: color-mix(in srgb, CanvasText 50%, transparent);
+			}
+			.text-brand {
+				color: color-mix(in srgb, var(--brand) 85%, CanvasText);
+			}
+		</style>
+	</head>
+	<body>
+		<h1>nested shadow-roots</h1>
+		<p>
+			Since <code>adoptstyles</code> is set at the shadow-root level, we don't
+			always have to use it for accessing
+			<em class="text-brand">page styles</em>.
+		</p>
+
+		<my-component>
+			<template shadowrootmode="open">
+				<p>
+					A standalone component can orchestrate common styles for its nested
+					shadow-roots.
+				</p>
+				<style>
+					:host {
+						display: block;
+						border: 1.5px solid var(--muted);
+						min-inline-size: 150px;
+						padding: 8px;
+					}
+					p {
+						font-style: italic;
+					}
+				</style>
+
+				<div>
+					<template shadowrootmode="open" adoptstyles="inherit">
+						<p>
+							Inner shadow-roots often have full trust in their immediate
+							parent, so <code>adoptstyles="inherit"</code> is perfectly safe
+							here.
+						</p>
+					</template>
+				</div>
+
+				<div>
+					<template shadowrootmode="open" adoptstyles="inherit">
+						<p>
+							And when needed, specific sub-trees can still reach the document
+							using <code>adopstyles="initial"</code>.
+
+							<template shadowrootmode="open" adoptstyles="initial">
+								<slot></slot>
+
+								<em class="text-brand">(Inspect this!)</em>
+							</template>
+						</p>
+					</template>
+				</div>
+			</template>
+		</my-component>
+
+		<hr />
+
+		<footer>
+			<p>
+				View source code for this page on
+				<a
+					href="https://github.com/mayank99/open-styleable/blob/main/pages/nested/index.html"
+					>GitHub</a
+				>.
+			</p>
+		</footer>
+	</body>
+</html>

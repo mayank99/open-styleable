@@ -8,6 +8,7 @@
 	margin: 0;
 	padding: 16px;
 	font-family: system-ui, sans-serif;
+	min-block-size: 100dvh;
 }
 
 :where(button, input, select, textarea) {
@@ -16,4 +17,10 @@
 
 :where([hidden]:not([hidden="until-found"])) {
 	display: none !important;
+}
+
+:where(footer) {
+	font-size: 0.9em;
+	font-style: italic;
+	opacity: 0.9;
 }

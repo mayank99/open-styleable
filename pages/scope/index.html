@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="color-scheme" content="dark" />
+		<title>open-styleable demo</title>
+		<script src="/open-styleable-client.js"></script>
+
+		<link rel="stylesheet" href="/base.css" />
+		<link rel="stylesheet" href="scope.css" />
+
+		<style>
+			@scope (:root) {
+				section {
+					display: flex;
+					gap: 8px;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>scope</h1>
+		<p>
+			By default, all stylesheets are unscoped. To scope a stylesheet to the
+			document or to a shadow-root, use
+			<a
+				class="pink"
+				href="https://developer.mozilla.org/en-US/docs/Web/CSS/@scope"
+				><code>@scope</code></a
+			>.
+		</p>
+
+		<p>
+			This demo works in <span class="pink">Chrome</span> today! (Inspect it)
+		</p>
+
+		<h2><code>@scope(:root)</code> — document only</h2>
+		<section>
+			<div class="box">
+				<p class="pink">pink</p>
+			</div>
+
+			<div class="box">
+				<template shadowrootmode="open" adoptstyles="inherit">
+					<p class="pink">pink</p>
+				</template>
+			</div>
+
+			<div class="box">
+				<my-component data-color="pink"></my-component>
+			</div>
+		</section>
+
+		<h2><code>@scope(:host)</code> — all shadow-roots</h2>
+		<section>
+			<div class="box">
+				<p class="blue">blue</p>
+			</div>
+
+			<div class="box">
+				<template shadowrootmode="open" adoptstyles="inherit">
+					<p class="blue">blue</p>
+				</template>
+			</div>
+
+			<div class="box">
+				<my-component data-color="blue"></my-component>
+			</div>
+		</section>
+
+		<h2><code>@scope(:host(my-component))</code> — specific shadow-root</h2>
+		<section>
+			<div class="box">
+				<p class="green">green</p>
+			</div>
+
+			<div class="box">
+				<template shadowrootmode="open" adoptstyles="inherit">
+					<p class="green">green</p>
+				</template>
+			</div>
+
+			<div class="box">
+				<my-component data-color="green"></my-component>
+			</div>
+		</section>
+
+		<hr />
+
+		<footer>
+			<p>
+				View source code for this page on
+				<a
+					href="https://github.com/mayank99/open-styleable/blob/main/pages/scope/index.html"
+					>GitHub</a
+				>.
+			</p>
+		</footer>
+
+		<script type="module">
+			customElements.define(
+				"my-component",
+				class extends HTMLElement {
+					constructor() {
+						super();
+						this.attachShadow({
+							mode: "open",
+							adoptStyles: "inherit",
+						}).innerHTML = `<p class=${this.dataset.color}>${this.dataset.color}</p>`;
+					}
+				}
+			);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="color-scheme" content="dark" />
+		<title>open-styleable demo</title>
+		<script src="/open-styleable-client.js"></script>
+
+		<link rel="stylesheet" href="/base.css" />
+	</head>
+	<body>
+		<h1>layers</h1>
+		<p>
+			By default, all styles are unlayered. When adopted into a shadow tree,
+			these styles continue to stay unlayered but are placed <em>after</em> the
+			shadow root's own styles.
+		</p>
+
+		<p>
+			To deprioritize some styles, they can be explicitly put in a layer. For
+			example, you might put the default styles for your
+			<code>button</code>s inside <code>@layer defaults</code>.
+		</p>
+
+		<style>
+			@layer defaults {
+				button {
+					background-color: transparent;
+					border: 1px solid;
+					user-select: none;
+					cursor: pointer;
+				}
+			}
+		</style>
+
+		<button>Hello</button>
+
+		<p>
+			Later, you can use shadow DOM for adding more opinionated styles to the
+			buttons. These styles will automatically take priority over the page
+			defaults.
+		</p>
+
+		<script type="module">
+			customElements.define(
+				"my-button",
+				class extends HTMLElement {
+					constructor() {
+						super();
+						this.attachShadow({ mode: "open", adoptStyles: "initial" });
+						this.shadowRoot.innerHTML = `
+						<style>
+							button {
+								border-radius: 8px;
+								padding-inline: 12px;
+								padding-block: 8px;
+								border-color: color-mix(in srgb, currentColor 70%, transparent);
+								transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+
+								&:hover {
+									border-color: currentColor;
+									transform: translateY(-1px);
+								}
+
+								&:focus-visible {
+									outline: 2px solid;
+									outline-offset: 2px;
+								}
+							}
+						</style>
+						<button class="${
+							this.getAttribute("button-classes") || ""
+						}"><slot></slot></button>
+					`;
+					}
+				}
+			);
+		</script>
+
+		<my-button>Hover me</my-button>
+
+		<p>
+			And finally, you can use unlayered (or higher-priority layered) page
+			styles to customize the button even further.
+		</p>
+
+		<style>
+			.hotpink {
+				color: hotpink;
+			}
+			.cornflowerblue {
+				color: cornflowerblue;
+			}
+			.italic {
+				font-style: italic;
+			}
+		</style>
+
+		<my-button button-classes="hotpink">Pink</my-button>
+		<my-button button-classes="cornflowerblue italic">Blue</my-button>
+
+		<hr />
+
+		<footer>
+			<p>
+				View source code for this page on
+				<a
+					href="https://github.com/mayank99/open-styleable/blob/main/pages/layers/index.html"
+					>GitHub</a
+				>.
+			</p>
+		</footer>
+	</body>
+</html>
