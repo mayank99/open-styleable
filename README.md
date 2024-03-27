@@ -5,7 +5,16 @@ A proof-of-concept implementation of open-styleable shadow-roots, using a combin
 - A build-time HTML transform for declarative shadow DOM
 - A client-side script that overrides `attachShadow`
 
-Try it live:
+## Demo
+
+View the hosted examples:
+
+- [basic](https://open-styleable.mynk.app/) ([source](https://github.com/mayank99/open-styleable/blob/main/pages/index.html))
+- [nested shadow-roots](https://open-styleable.mynk.app/nested) ([source](https://github.com/mayank99/open-styleable/blob/main/pages/nested/index.html))
+- [layers](https://open-styleable.mynk.app/layers) ([source](https://github.com/mayank99/open-styleable/blob/main/pages/layers/index.html))
+- [scope](https://open-styleable.mynk.app/scope) ([source](https://github.com/mayank99/open-styleable/blob/main/pages/scope/index.html))
+
+Edit the code live:
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github.com/mayank99/open-styleable?file=pages/index.html)
 
