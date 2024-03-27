@@ -11,7 +11,7 @@ Try it live:
 
 ## Usage
 
-*(See [standalone setup instructions](#standalone-setup) below if you're trying to use this in your own project)* 👀
+_(See [standalone setup instructions](#standalone-setup) below if you're trying to use this in your own project)_ 👀
 
 The access for open styles is controlled at the shadow-root level. Every shadow-root needs to explicitly opt-in using one of the following ways.
 
@@ -80,7 +80,7 @@ To use this "polyfill" in your own project:
 
 ## Development
 
-This demo is built with 11ty. All html routes go in the `pages/` directory, and all CSS (and other assets) live in the `public` directory.
+This demo is built with 11ty. All test pages go in the `pages/` directory.
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/mayank99/open-styleable)
 

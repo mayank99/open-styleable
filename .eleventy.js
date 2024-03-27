@@ -9,6 +9,8 @@ export default function (eleventyConfig) {
 
 	eleventyConfig.setServerOptions({ domDiff: false });
 
+	eleventyConfig.addTemplateFormats("css");
+
 	eleventyConfig.addTransform("open-styleable", function (content) {
 		if (this.page.outputPath?.endsWith(".html")) {
 			return transformHtml(content);

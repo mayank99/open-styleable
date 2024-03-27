@@ -7,7 +7,7 @@
 		<title>open-styleable demo</title>
 		<script src="/open-styleable-client.js"></script>
 
-		<link rel="stylesheet" href="/reset.css" />
+		<link rel="stylesheet" href="/base.css" />
 
 		<style>
 			p.shadow {
@@ -19,7 +19,7 @@
 		</style>
 	</head>
 	<body>
-		<h1>Hello</h1>
+		<h1>open-styleable</h1>
 
 		<div>
 			<template shadowrootmode="open" adoptstyles="inherit">
@@ -32,6 +32,17 @@
 			<my-component></my-component>
 		</div>
 
+		<p>Everything can be openly styled using classes defined on the page.</p>
+
+		<hr />
+
+		<footer>
+			<p>
+				View source code on
+				<a href="https://github.com/mayank99/open-styleable">GitHub</a>.
+			</p>
+		</footer>
+
 		<script type="module">
 			customElements.define(
 				"my-component",
@@ -40,7 +51,7 @@
 						super();
 						this.attachShadow({ mode: "open", adoptStyles: "inherit" });
 						this.shadowRoot.innerHTML = `\
-							<p class="shadow">This is inside a client-rendered shadow-root.</p>
+							<p class="shadow">And this is inside a client-rendered shadow-root.</p>
 						`;
 					}
 				}
