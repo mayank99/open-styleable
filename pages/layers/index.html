@@ -95,10 +95,25 @@
 			.italic {
 				font-style: italic;
 			}
+			.box {
+				outline: 1px solid;
+				padding: 8px;
+			}
 		</style>
 
 		<my-button button-classes="hotpink">Pink</my-button>
 		<my-button button-classes="cornflowerblue italic">Blue</my-button>
+
+		<hr />
+
+		<aside role="note" class="box">
+			<p>
+				<strong>Note</strong>: Layer names from outer context (page) are shared
+				with the shadow-root. <br />
+				This allows the shadow-root to extend the outer layers and rearrange
+				them by specifying a layer order inside its own styles.
+			</p>
+		</aside>
 
 		<hr />
 
