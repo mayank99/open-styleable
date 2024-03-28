@@ -55,6 +55,9 @@ For client-rendered shadow-roots, use the `adoptStyles` option when calling `att
   });
   ```
 
+> [!IMPORTANT]
+> There are some [known limitations/caveats](https://github.com/mayank99/open-styleable/issues/6) that you should be aware of.
+
 ## Standalone setup
 
 To use this "polyfill" in your own project:
