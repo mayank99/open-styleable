@@ -10,9 +10,9 @@ A proof-of-concept implementation of open-styleable shadow-roots, using a combin
 View the hosted examples:
 
 - [basic](https://open-styleable.mynk.app/) ([source](https://github.com/mayank99/open-styleable/blob/main/pages/index.html))
-- [nested shadow-roots](https://open-styleable.mynk.app/nested) ([source](https://github.com/mayank99/open-styleable/blob/main/pages/nested/index.html))
-- [layers](https://open-styleable.mynk.app/layers) ([source](https://github.com/mayank99/open-styleable/blob/main/pages/layers/index.html))
-- [scope](https://open-styleable.mynk.app/scope) ([source](https://github.com/mayank99/open-styleable/blob/main/pages/scope/index.html))
+- [nested shadow-roots](https://open-styleable.mynk.app/nested/) ([source](https://github.com/mayank99/open-styleable/blob/main/pages/nested/index.html))
+- [layers](https://open-styleable.mynk.app/layers/) ([source](https://github.com/mayank99/open-styleable/blob/main/pages/layers/index.html))
+- [scope](https://open-styleable.mynk.app/scope/) ([source](https://github.com/mayank99/open-styleable/blob/main/pages/scope/index.html))
 
 Edit the code live:
 
@@ -26,32 +26,32 @@ The access for open styles is controlled at the shadow-root level. Every shadow-
 
 For [declarative shadow DOM](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM#declaratively_with_html) (DSD):
 
-- Add `adoptstyles="inherit"` to the DSD template. This shadow-root will now automatically inherit all styles from the host context (i.e. the document or a parent shadow-root).
+- Add the `adopthoststyles` attribute to the DSD template. This shadow-root will now automatically inherit all styles from the host context (i.e. the document or a parent shadow-root).
 
   ```html
-  <template shadowrootmode="open" adoptstyles="inherit">…</template>
+  <template shadowrootmode="open" adopthoststyles>…</template>
   ```
 
-- Alternatively, if you only want to adopt styles from the document and not from the parent shadow-root, then you can use `adoptstyles="initial"`.
+- Alternatively, if you only want to adopt styles from the document and not from the parent shadow-root, then you can use `adoptpagestyles`.
 
   ```html
-  <template shadowrootmode="open" adoptstyles="initial">…</template>
+  <template shadowrootmode="open" adoptpagestyles>…</template>
   ```
 
-For client-rendered shadow-roots, use the `adoptStyles` option when calling `attachShadow`.
+For client-rendered shadow-roots, use the `adoptPageStyles` and `adoptHostStyles` options when calling `attachShadow`.
 
-- Use `adoptStyles: "inherit"` to adopt all styles from the host context.
+- Use `adoptHostStyles` to adopt all styles from the host context.
   ```js
   this.attachShadow({
   	mode: "open",
-  	adoptStyles: "inherit",
+  	adoptHostStyles: true,
   });
   ```
-- Use `adoptStyles: "initial"` to adopt all styles from the document only.
+- Use `adoptPageStyles` to adopt all styles from the page/document only.
   ```js
   this.attachShadow({
   	mode: "open",
-  	adoptStyles: "initial",
+  	adoptPageStyles: true,
   });
   ```
 

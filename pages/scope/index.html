@@ -43,7 +43,7 @@
 			</div>
 
 			<div class="box">
-				<template shadowrootmode="open" adoptstyles="inherit">
+				<template shadowrootmode="open" adopthoststyles>
 					<p class="pink">pink</p>
 				</template>
 			</div>
@@ -60,7 +60,7 @@
 			</div>
 
 			<div class="box">
-				<template shadowrootmode="open" adoptstyles="inherit">
+				<template shadowrootmode="open" adopthoststyles>
 					<p class="blue">blue</p>
 				</template>
 			</div>
@@ -77,7 +77,7 @@
 			</div>
 
 			<div class="box">
-				<template shadowrootmode="open" adoptstyles="inherit">
+				<template shadowrootmode="open" adopthoststyles>
 					<p class="green">green</p>
 				</template>
 			</div>
@@ -107,7 +107,7 @@
 						super();
 						this.attachShadow({
 							mode: "open",
-							adoptStyles: "inherit",
+							adoptHostStyles: true,
 						}).innerHTML = `<p class=${this.dataset.color}>${this.dataset.color}</p>`;
 					}
 				}

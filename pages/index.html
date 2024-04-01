@@ -22,7 +22,7 @@
 		<h1>open-styleable</h1>
 
 		<div>
-			<template shadowrootmode="open" adoptstyles="inherit">
+			<template shadowrootmode="open" adopthoststyles>
 				<p class="shadow">This is inside shadow DOM. (Inspect it!)</p>
 				<slot></slot>
 			</template>
@@ -58,7 +58,7 @@
 				class extends HTMLElement {
 					constructor() {
 						super();
-						this.attachShadow({ mode: "open", adoptStyles: "inherit" });
+						this.attachShadow({ mode: "open", adoptHostStyles: true });
 						this.shadowRoot.innerHTML = `\
 							<p class="shadow">And this is inside a client-rendered shadow-root.</p>
 						`;

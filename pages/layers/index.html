@@ -48,7 +48,7 @@
 				class extends HTMLElement {
 					constructor() {
 						super();
-						this.attachShadow({ mode: "open", adoptStyles: "initial" });
+						this.attachShadow({ mode: "open", adoptPageStyles: true });
 						this.shadowRoot.innerHTML = `
 						<style>
 							button {
