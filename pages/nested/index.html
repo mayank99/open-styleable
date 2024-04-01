@@ -22,8 +22,8 @@
 	<body>
 		<h1>nested shadow-roots</h1>
 		<p>
-			Since <code>adoptstyles</code> is set at the shadow-root level, we don't
-			always have to use it for accessing
+			Since <code>adoptHostStyles</code> gets set at the shadow-root level, we
+			don't always have to use it for accessing
 			<em class="text-brand">page styles</em>.
 		</p>
 
@@ -46,22 +46,21 @@
 				</style>
 
 				<div>
-					<template shadowrootmode="open" adoptstyles="inherit">
+					<template shadowrootmode="open" adopthoststyles>
 						<p>
 							Inner shadow-roots often have full trust in their immediate
-							parent, so <code>adoptstyles="inherit"</code> is perfectly safe
-							here.
+							parent, so <code>adopthoststyles</code> is perfectly safe here.
 						</p>
 					</template>
 				</div>
 
 				<div>
-					<template shadowrootmode="open" adoptstyles="inherit">
+					<template shadowrootmode="open" adopthoststyles>
 						<p>
 							And when needed, specific sub-trees can still reach the document
-							using <code>adoptstyles="initial"</code>.
+							using <code>adoptpagestyles</code>.
 
-							<template shadowrootmode="open" adoptstyles="initial">
+							<template shadowrootmode="open" adoptpagestyles>
 								<slot></slot>
 
 								<em class="text-brand">(Inspect this!)</em>

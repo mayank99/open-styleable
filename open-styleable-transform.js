@@ -20,14 +20,14 @@ export function transformHtml(html) {
 			root.querySelectorAll("link[rel=stylesheet], style")
 		);
 
-		for (const template of templates.filter(
-			(template) => template.getAttribute("adoptstyles") === "initial"
+		for (const template of templates.filter((template) =>
+			template.hasAttribute("adoptpagestyles")
 		)) {
 			template.append(...documentStyles.map((el) => el.cloneNode(true)));
 		}
 
-		for (const template of templates.filter(
-			(template) => template.getAttribute("adoptstyles") === "inherit"
+		for (const template of templates.filter((template) =>
+			template.hasAttribute("adopthoststyles")
 		)) {
 			template.append(...parentStyles.map((el) => el.cloneNode(true)));
 		}

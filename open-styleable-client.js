@@ -7,9 +7,9 @@
 		const shadow = originalAttachShadow.call(this, init);
 
 		let sourceNode;
-		if (init["adoptStyles"] === "initial") {
+		if (init["adoptPageStyles"] === true) {
 			sourceNode = this.ownerDocument;
-		} else if (init["adoptStyles"] === "inherit") {
+		} else if (init["adoptHostStyles"] === true) {
 			sourceNode = shadow.host.getRootNode();
 		}
 
