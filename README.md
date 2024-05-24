@@ -1,6 +1,6 @@
 # open-styleable
 
-A proof-of-concept implementation of open-styleable shadow-roots, using a combination of:
+A proof-of-concept implementation of [open-styleable shadow-roots](https://github.com/WICG/webcomponents/issues/909#issuecomment-2042059261), using a combination of:
 
 - A build-time HTML transform for declarative shadow DOM
 - A client-side script that overrides `attachShadow`
